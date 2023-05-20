@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="./app.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">        
+		<script src="./bundle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-wPhSditxIw4NCaDAJBmIQyekLLnsJII&libraries=geometry"></script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script> <!-- ikonka polohy -->
+		<title>TSP</title>
+	</head>
+	<body>                                                
+		<div class="tabs">
+			<span id="route-tab" >Traveling Salesman Problem</span>
+		</div>
+		<div id="route">
+			<!-- <h1 class="title">Traveling Salesman</h1> -->
+			<div class="instructions">
+				<h4>Krok 1: Kliknutím na mapu, vyberte body pro vaši cestu.
+                            Nebo jen vyberte pøednastavenou trasu níže.</h4>
+                            
+				<p id="vzdalenost"></p>
+
+				<span>
+					Vyber cestu:
+					<select id="presets" name="presets">
+						
+						<option value="1">Czechia</option>
+						<option value="2">Nemecko</option>
+						<option value="0">Vlastní cesta!</option>
+					</select>
+				</span>
+				<h4>Krok 2: Po výbìru zastávek mùžete znaèky skrýt, pokud chcete.</h4>
+				<button id="hide-markers">Pøepnout body</button>
+
+
+				<div class="buttons sliders">
+					<span>
+						<input id="num-evals" value="67" type="range" min="0" max="100" /> <br />
+						<span>Number of evaluations: <span id="display-num-evals">10000</span></span>
+					</span>
+				</div>
+				<h4>Krok 3: Kliknutím na tlaèítko "Trasovat" nabídne jednu z nejkratších cest.</h4>
+                
+				<div class="buttons sliders">
+			</div>
+			<div class="buttons">
+				<button id="runGoog">Trasovat</button>
+			    <br/>
+				<button id="clear-map">Vyèistit mapu</button>
+			</div>
+			</div>
+
+			<div id="map"></div>
+
+		</div>
+		<div id="paint">
+
+			<canvas id="canvas" width="1000" height="500"></canvas>
+
+			<button id="run">Draw</button>
+		</div>
+	</body>
+</html>
